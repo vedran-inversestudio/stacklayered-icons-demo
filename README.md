@@ -46,3 +46,10 @@ Each icon is structured with class-based layers:
 
 ## 🗂️ File Structure
 
+📁 stacklayered-icons-demo/
+├── index.html # Main demo file
+└── README.md # This file
+
+## 📄 License
+
+MIT — use freely, modify as needed.
