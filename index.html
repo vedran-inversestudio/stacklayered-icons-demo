@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stacklayered Icons Demo</title>
+  <style>
+    :root {
+      --icon-fill-color: #4C5267;
+      --icon-stroke-color: #4C5267;
+      --icon-stroke-width: 1.75;
+      --icon-background-color: #E0E2EB;
+
+      --icon-size-sm: 16px;
+      --icon-size-md: 20px;
+      --icon-size-lg: 24px;
+    }
+
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .icon-controls {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .icon-controls label {
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .icon-preview {
+      padding: 1rem;
+      background: white;
+      border: 1px solid #ddd;
+      display: flex;
+      gap: 2rem;
+      border-radius: 8px;
+    }
+
+    .stacklayered-icon {
+      display: block;
+      width: var(--icon-size-md);
+      height: var(--icon-size-md);
+    }
+
+    .stacklayered-icon .fill {
+      fill: var(--icon-fill-color);
+    }
+
+    .stacklayered-icon .stroke {
+      stroke: var(--icon-stroke-color);
+      stroke-width: var(--icon-stroke-width);
+    }
+
+    .stacklayered-icon .background {
+      fill: var(--icon-background-color);
+    }
+
+    .stacklayered-icon.no-background .background {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Stacklayered Icons Demo</h1>
+
+  <div class="icon-controls">
+    <label>
+      Size:
+      <select id="iconSize">
+        <option value="sm">Small (16px)</option>
+        <option value="md" selected>Medium (20px)</option>
+        <option value="lg">Large (24px)</option>
+      </select>
+    </label>
+
+    <label>
+      Fill Color:
+      <input type="color" id="fillColor" value="#4C5267">
+    </label>
+
+    <label style="margin-top: 1.25rem;">
+      <input type="checkbox" id="bgToggle" checked>
+      Show Background
+    </label>
+  </div>
+
+  <div class="icon-preview">
+    <!-- Icon 1 -->
+    <svg class="stacklayered-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path class="background" d="M15 3H9V5.58152C6.06817 6.76829 4 9.64262 4 13C4 17.4183 7.58172 21 12 21C16.4183 21 20 17.4183 20 13C20 9.64262 17.9318 6.76829 15 5.58152V3Z" />
+        <path class="fill" d="M12 21C16.4183 21 20 17.4183 20 13H4C4 17.4183 7.58172 21 12 21Z" />
+        <path class="stroke" d="M15 3H9V5.58152C6.06817 6.76829 4 9.64262 4 13C4 17.4183 7.58172 21 12 21C16.4183 21 20 17.4183 20 13C20 9.64262 17.9318 6.76829 15 5.58152V3Z" stroke-linejoin="round"/>
+      </g>
+    </svg>
+
+    <!-- Icon 2 -->
+    <svg class="stacklayered-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0)">
+        <path class="background" d="M20.6712 15.9153L9.83628 19.8744C9.20651 20.1046 8.50307 20.0052 7.96207 19.6098L3.20498 16.1329C2.88876 15.9018 2.94913 15.4143 3.31223 15.2669L5.65484 14.3157L3.20498 12.5251C2.88876 12.294 2.94913 11.8066 3.31223 11.6591L5.65484 10.708L3.23606 8.94009C2.91339 8.70425 2.98424 8.20495 3.35986 8.06769L14.1671 4.11849C14.7968 3.88838 15.5002 3.98764 16.0412 4.38298L20.7681 7.83718C21.0908 8.073 21.0199 8.57235 20.6443 8.70961L18.3495 9.54815L20.8054 11.443C21.1171 11.6835 21.0413 12.1723 20.6712 12.3076L18.3495 13.1559L20.8054 15.0507C21.1171 15.2913 21.0413 15.7801 20.6712 15.9153Z"/>
+        <path class="stroke" d="M18.3495 9.54815L9.83628 12.6589C9.20651 12.889 8.50307 12.7897 7.96207 12.3943L5.65484 10.708M18.3495 9.54815L20.6443 8.70961C21.0199 8.57235 21.0908 8.073 20.7681 7.83718L16.0412 4.38298C15.5002 3.98764 14.7968 3.88838 14.1671 4.11849L3.35986 8.06769C2.98424 8.20495 2.91339 8.70425 3.23606 8.94009L5.65484 10.708M18.3495 9.54815L20.8054 11.443C21.1171 11.6835 21.0413 12.1723 20.6712 12.3076L18.3495 13.1559M5.65484 10.708L3.31223 11.6591C2.94913 11.8066 2.88876 12.294 3.20498 12.5251L5.65484 14.3157M5.65484 14.3157L7.96207 16.0021C8.50307 16.3975 9.20651 16.4968 9.83628 16.2667L18.3495 13.1559M5.65484 14.3157L3.31223 15.2669C2.94913 15.4143 2.88876 15.9018 3.20498 16.1329L7.96207 19.6098C8.50307 20.0052 9.20651 20.1046 9.83628 19.8744L20.6712 15.9153C21.0413 15.7801 21.1171 15.2913 20.8054 15.0507L18.3495 13.1559" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <defs>
+        <clipPath id="clip0">
+          <rect width="24" height="24" fill="white"/>
+        </clipPath>
+      </defs>
+    </svg>
+
+    <!-- Icon 3 -->
+    <svg class="stacklayered-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip1)">
+        <path class="stroke" d="M3.76758 8.625C5.09397 5.32669 8.30646 3 12.0588 3C16.9969 3 21 7.02944 21 12C21 16.9706 16.9969 21 12.0588 21C9.23522 21 6.71731 19.6825 5.0787 17.625M3.76758 8.625L3 4M3.76758 8.625L8 8M12.5 8V12.4648C12.5 12.7992 12.3329 13.1114 12.0547 13.2969L9.5 15" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <defs>
+        <clipPath id="clip1">
+          <rect width="24" height="24" fill="white"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+
+  <script>
+    const icons = document.querySelectorAll('.stacklayered-icon');
+    const sizeSelector = document.getElementById('iconSize');
+    const fillPicker = document.getElementById('fillColor');
+    const bgToggle = document.getElementById('bgToggle');
+
+    function updateSize(value) {
+      const size = getComputedStyle(document.documentElement).getPropertyValue(`--icon-size-${value}`);
+      icons.forEach(svg => {
+        svg.style.width = size.trim();
+        svg.style.height = size.trim();
+      });
+    }
+
+    sizeSelector.addEventListener('change', e => updateSize(e.target.value));
+    fillPicker.addEventListener('input', e => {
+      document.documentElement.style.setProperty('--icon-fill-color', e.target.value);
+    });
+
+    bgToggle.addEventListener('change', e => {
+      icons.forEach(icon => icon.classList.toggle('no-background', !e.target.checked));
+    });
+
+    // Initial setup
+    updateSize(sizeSelector.value);
+  </script>
+
+</body>
+</html>
